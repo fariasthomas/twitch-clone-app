@@ -1,12 +1,11 @@
 import React from 'react';
-import { View, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 
 import Header from '../../components/Header';
 import Heading from '../../components/Heading';
-import Title from '../../components/Title';
 import CategoryList from '../../components/CategoryList';
-import StreamList from '../../components/StreamList';
-import ChannelList from '../../components/ChannelList';
+import Title from '../../components/Title';
+import LiveChannelsList from '../../components/LiveChannelsList';
 
 import { Wrapper, Container, Main } from './styles';
 
@@ -16,43 +15,28 @@ interface Item {
   isTitle?: boolean;
 }
 
-const Following: React.FC = () => {
+const Discover: React.FC = () => {
   const { data, indices } = React.useMemo(() => {
     const items: Item[] = [
       {
         key: 'PAGE_HEADING',
-        render: () => <Heading>Seguindo</Heading>
+        render: () => <Heading>Descubra</Heading>
       },
 
       {
-        key: 'FOLLOWED_CATEGORIES',
-        render: () => <Title>Categorias seguidas</Title>,
+        key: 'DESCOVER_CATEGORY',
+        render: () => <Title>Categorias que achamos que vai gostar</Title>,
         isTitle: true
       },
       { key: 'C1', render: () => <CategoryList /> },
 
       {
-        key: 'LIVE_CHANNELS',
-        render: () => <Title>Canais ao vivo</Title>,
+        key: 'LIKE_CHANNELS',
+        render: () => <Title>Canais ao vivo que achamos que vai gostar</Title>,
         isTitle: true
       },
-      { key: 'C2', render: () => <StreamList /> },
-
-      {
-        key: 'CONTINUE_WATCHING',
-        render: () => <Title>Continue assistindo</Title>,
-        isTitle: true
-      },
-      { key: 'C3', render: () => <StreamList /> },
-
-      {
-        key: 'OFFILINE_CHANNELS',
-        render: () => <Title>Canais offiline</Title>,
-        isTitle: true
-      },
-      { key: 'C4', render: () => <ChannelList /> },
+      { key: 'C1', render: () => <LiveChannelsList /> },
     ];
-
     // Array que contém apenas os índices nos elementos  que são títulos
     const indices: number[] = [];
 
@@ -85,4 +69,4 @@ const Following: React.FC = () => {
   );
 };
 
-export default Following;
+export default Discover;

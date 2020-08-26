@@ -1,12 +1,11 @@
 import React from 'react';
-import { View, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 
 import Header from '../../components/Header';
 import Heading from '../../components/Heading';
 import Title from '../../components/Title';
-import CategoryList from '../../components/CategoryList';
-import StreamList from '../../components/StreamList';
-import ChannelList from '../../components/ChannelList';
+import CategoryListMobile from '../../components/CategoryListMobile';
+import AllCategoryList from '../../components/AllCategoryList';
 
 import { Wrapper, Container, Main } from './styles';
 
@@ -16,7 +15,7 @@ interface Item {
   isTitle?: boolean;
 }
 
-const Following: React.FC = () => {
+const Browser: React.FC = () => {
   const { data, indices } = React.useMemo(() => {
     const items: Item[] = [
       {
@@ -26,31 +25,17 @@ const Following: React.FC = () => {
 
       {
         key: 'FOLLOWED_CATEGORIES',
-        render: () => <Title>Categorias seguidas</Title>,
+        render: () => <Title>Principais categorias para celular</Title>,
         isTitle: true
       },
-      { key: 'C1', render: () => <CategoryList /> },
+      { key: 'C1', render: () => <CategoryListMobile /> },
 
       {
-        key: 'LIVE_CHANNELS',
-        render: () => <Title>Canais ao vivo</Title>,
+        key: 'TOTAL_CATEGORIES',
+        render: () => <Title>Todas as categorias</Title>,
         isTitle: true
       },
-      { key: 'C2', render: () => <StreamList /> },
-
-      {
-        key: 'CONTINUE_WATCHING',
-        render: () => <Title>Continue assistindo</Title>,
-        isTitle: true
-      },
-      { key: 'C3', render: () => <StreamList /> },
-
-      {
-        key: 'OFFILINE_CHANNELS',
-        render: () => <Title>Canais offiline</Title>,
-        isTitle: true
-      },
-      { key: 'C4', render: () => <ChannelList /> },
+      { key: 'C2', render: () => <AllCategoryList /> },
     ];
 
     // Array que contém apenas os índices nos elementos  que são títulos
@@ -85,4 +70,4 @@ const Following: React.FC = () => {
   );
 };
 
-export default Following;
+export default Browser;

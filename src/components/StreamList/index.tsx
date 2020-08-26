@@ -1,6 +1,7 @@
 import React from 'react';
 
 import streamThumbnail from '../../images/stream_thumbnail.jpg';
+import Tags from '../Tags';
 
 import { 
   List, 
@@ -12,10 +13,7 @@ import {
   StreamAvatar, 
   StreamUserName, 
   StreamDescription,
-  StreamCategory,
-  TagRow, 
-  TagView, 
-  TagText 
+  StreamCategory
 } from './styles';
 
 const StreamList: React.FC = () => {
@@ -39,14 +37,7 @@ const StreamList: React.FC = () => {
           </StreamCategory>
         </StreamRow>
 
-        <TagRow>
-          <TagView>
-            <TagText>Portuguese</TagText>
-          </TagView>
-          <TagView>
-            <TagText>Web Development</TagText>
-          </TagView>
-        </TagRow>
+        <Tags />
       </StreamColumn>
     </StreamContainer>
   )

@@ -1,5 +1,4 @@
 import React from 'react';
-import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
@@ -7,6 +6,8 @@ import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import Following from './pages/Following';
 import ComingSoon from './pages/ComingSoon';
 import colors from './styles/colors';
+import Discover from './pages/Discover';
+import Browser from './pages/Browser';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -38,7 +39,7 @@ const Routes: React.FC = () => (
       }}
     >
       <Screen 
-        name="Following" 
+        name="Seguindo" 
         component={Following} 
         options={{
           tabBarIcon: ({ size, focused }) => {
@@ -53,8 +54,8 @@ const Routes: React.FC = () => (
         }} 
       />
       <Screen 
-        name="Discover" 
-        component={ComingSoon} 
+        name="Descubra" 
+        component={Discover} 
         options={{
           tabBarIcon: ({ size, focused }) => {
             return (
@@ -68,8 +69,8 @@ const Routes: React.FC = () => (
         }}
       />
       <Screen 
-        name="Browse" 
-        component={ComingSoon} 
+        name="Procurar" 
+        component={Browser} 
         options={{
           tabBarIcon: ({ size, focused }) => {
             return (
