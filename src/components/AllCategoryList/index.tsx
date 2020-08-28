@@ -1,33 +1,40 @@
 import React from 'react';
 
 import Tags from '../Tags';
+import data from './data';
 
 import { 
   List, 
   CategoryContainer, 
   GameThumb, 
   Description, 
-  CategoryName, 
+  GameName, 
   TotalViews 
 } from './styles';
 
+interface ItemProps {
+  item: typeof data[0];
+}
+
 const AllCategoryList: React.FC = () => {
-  const CategoryItem = () => (
+  const CategoryItem: React.FC<ItemProps> = ({ item }) => (
     <CategoryContainer>
-      <GameThumb />
+      <GameThumb source={item.source} />
 
       <Description>
-        <CategoryName />
-        <TotalViews />
+        <GameName numberOfLines={1}>{item.name}</GameName>
+        <TotalViews>100 mil espectadores</TotalViews>
 
-        <Tags />
+        <Tags>{item.category}</Tags>
       </Description>
     </CategoryContainer>
   )
   
   return (
     <List>
-
+      {data.map(item => (
+        <CategoryItem key={item.name} item={item} />
+      ))}
     </List>
   );
 };

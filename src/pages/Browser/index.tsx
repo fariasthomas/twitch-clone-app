@@ -6,6 +6,7 @@ import Heading from '../../components/Heading';
 import Title from '../../components/Title';
 import CategoryListMobile from '../../components/CategoryListMobile';
 import AllCategoryList from '../../components/AllCategoryList';
+import NavButtons from '../../components/NavButtons';
 
 import { Wrapper, Container, Main } from './styles';
 
@@ -21,6 +22,11 @@ const Browser: React.FC = () => {
       {
         key: 'PAGE_HEADING',
         render: () => <Heading>Seguindo</Heading>
+      },
+
+      {
+        key: 'NAV_BUTTONS',
+        render: () => <NavButtons />
       },
 
       {

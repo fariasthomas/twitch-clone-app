@@ -6,10 +6,7 @@ const Tags: React.FC = () => {
   return (
     <TagRow>
       <TagView>
-        <TagText>Portuguese</TagText>
-      </TagView>
-      <TagView>
-        <TagText>Web Development</TagText>
+        <TagText>Português</TagText>
       </TagView>
     </TagRow>
   );
