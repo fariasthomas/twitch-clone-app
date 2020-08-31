@@ -33,6 +33,8 @@ export const RightSide = styled.View`
     align-items: center;
 `;
 
+export const View = styled.View``;
+
 export const Button = styled.TouchableOpacity`
     margin-left: 20px;
 `;

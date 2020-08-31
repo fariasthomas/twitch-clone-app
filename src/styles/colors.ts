@@ -1,3 +1,5 @@
+
+/**
 export default {
   primary: '#000014',
   black: '#efeff1',
@@ -8,7 +10,7 @@ export default {
   purple: '#bf94ff',
 };
 
-/**
+
  * Auto Theme Challenge:
  *
  * Change App theme based on device theme.

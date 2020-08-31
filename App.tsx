@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import { ThemeProvider, DefaultTheme } from 'styled-components';
 import { AppLoading } from 'expo';
 import {
   Roboto_400Regular,
@@ -9,6 +10,10 @@ import {
 } from '@expo-google-fonts/roboto';
 
 import Routes from './src/routes';
+
+import light from './src/styles/themes/light';
+import dark from './src/styles/themes/dark';
+import usePersistedState from './src/utils/usePersistedState';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -21,10 +26,18 @@ export default function App() {
     return <AppLoading />;
   }
 
+  const [theme, setTheme] = usePersistedState<DefaultTheme>('theme', light);
+
+  const toggleTheme = () => {
+    setTheme(theme.title === 'light' ? dark : light);
+  };
+
   return (
     <>
-      <Routes />
-      <StatusBar style="light" />
+      <ThemeProvider theme={theme}>
+        <Routes />
+        <StatusBar  styles={light} toggleTheme={toggleTheme} />
+      </ThemeProvider>
     </>
   );
 }
